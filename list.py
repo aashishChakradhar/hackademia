@@ -34,10 +34,28 @@ mylist = ['happy','apple',1,2.3]
 # mylist.append('hello')
 # print(f'{mylist}')
 
-# task create list that contain even number form 1 to 100
+# # task create list that contain even number form 1 to 100
+# evenNum = []
+# for x in range(100):
+#     if x % 2 == 0:
+#         evenNum.append(x)
+# print(f"{evenNum}")
 
-evenNum = []
-for x in range(100):
-    if x % 2 == 0:
-        evenNum.append(x)
-print(f"{evenNum}")
+# # list slicing
+# print(f'{mylist[-1:0:-1]}')
+
+# list element removal
+# mylist.pop(1)
+# print(f'{mylist}')
+
+numlist = []
+for num in range(1,101):
+    numlist.append(num)
+print(f'{numlist}')
+for num in range(100,-1,-1):
+    if(num%2==0):
+        pass
+    else:
+        numlist.pop(num)
+
+print(f'\nlist of odd number:\n {numlist}')
