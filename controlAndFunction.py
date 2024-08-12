@@ -63,10 +63,8 @@ print(recursion(5))
 
 #task 8 reverse a string using recursion
 def revString(word):
-    n = len(word)-1
-    if(n == 0):
-        return ""
+    if word == '':
+        return word
     else:
-        print(word[n])
-        return word[n]+revString(word[n-1])
+        return revString(word[1:])+word[0]
 print(revString('happy'))
