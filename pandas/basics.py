@@ -37,13 +37,19 @@ print(data_frame_variable.loc[data_frame_variable['marks']<=20])
 
 # tast 2
 
+print('--'*25)
+print('task 2')
 data_frame_variable['question']=['hello','hi','yes','no']
-# print(data_frame_variable)
-# print(f'{data_frame_variable.loc[data_frame_variable['question']] == "yes"}')
+print(data_frame_variable)
+print(data_frame_variable.loc[data_frame_variable['question'] == "yes"])
 
+print('--'*25)
 # saving dataframe in csv file
 data_frame_variable.to_csv('Data.csv',index = False)
 # loading datafile
 new_dataframe = pd.read_csv('Data.csv')
 print('loaded from csv')
 print(new_dataframe)
+# read row
+print('--'*25)
+print(new_dataframe.iloc[1])
