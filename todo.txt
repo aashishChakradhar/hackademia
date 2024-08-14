@@ -1,1 +1,3 @@
-1. look up about finally
+---- File Handeling ---
+    1. look up about finally
+    2. look up loguru
