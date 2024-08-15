@@ -100,5 +100,81 @@
 
 '''
     Decorators:
-        
+        - Decorators are special functions that takes in other functions as parameter
+        - Decorators are initialized with @
 '''
+print('--'*25)
+# def smartConversion( func):
+#     def wrapper(x,y):
+#         return func(int(x),int(y))
+#     return wrapper
+
+# @smartConversion #decorator function
+# def division(x,y):
+#     return x/y
+
+# @smartConversion
+# def addition(x,y):
+#     return x+y
+
+# print(division('4','2'))
+# print(addition('4','2'))
+# print('--'*25)
+
+# import time
+
+# def counter(func):
+#     def wrapper(n):
+#         start = time.time()
+#         func (n)
+#         end = time.time()
+#         return(end - start)
+#     return wrapper
+
+# @counter
+# def largeComputation (n):
+#     random_computaion = 0
+#     for i in range (0,n):
+#         for j in range (0,n):
+#             random_computaion +=1
+#     return random_computaion
+
+# print(largeComputation(100))
+
+'''
+    task
+        function for add,sub,div,mult
+        should only have return statement
+
+        create decorateor named identify_function_and_parameters that should display 
+        which function is running and what is parameter
+'''
+
+def identify_function_and_parameters(func):
+    def wrapper(x,y):
+        print(f'function name: {func.__name__}\nparameters: {x}, {y}')
+        return func(x,y)
+    return wrapper
+
+x = 9
+y = 3
+@identify_function_and_parameters
+def addition(x,y):
+    return x+y
+
+@identify_function_and_parameters
+def subtraction(x,y):
+    return x-y
+
+@identify_function_and_parameters
+def multiplication(x,y):
+    return x*y
+
+@identify_function_and_parameters
+def division(x,y):
+    return x/y
+
+print(addition)
+print(multiplication)
+print(subtraction)
+print(division)
