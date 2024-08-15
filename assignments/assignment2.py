@@ -1,5 +1,6 @@
 '''
-    Task 3: WAP that first gives 2 options: 
+    Assignment 2:
+    WAP that first gives 2 options: 
     1. Sign up 
     2. Sign in 
 
@@ -19,12 +20,14 @@
 
     Do it using json files, save everything to json and load from json 
 '''
+
 import json
 import os
 
-
 userDetail = {}
+
 os.system('clear')
+
 while True:
     found = False
     print('----'*20)
