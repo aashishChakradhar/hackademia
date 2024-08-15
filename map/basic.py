@@ -5,6 +5,7 @@
     - map can also be used to map out 2
     different parameters from 2 different 
     collections over a function
+    $ map(function,iterable)
 '''
 # print('--'*25)
 # list_of_numbers = [i for i in range(10)]
@@ -46,6 +47,7 @@
         filter works very similar to map
         it takes function and iterable as input
         returns output whenever it is true
+        $ map(function,iterable)
 '''
 # print('=='*25)
 # numbers = [i for i in range (10)]
@@ -63,6 +65,40 @@
 # print(outputList)
 
 '''
+    Reduce:
+        [1,2,3,4]
+        multiply(x,y) ->x*y
+        it runs the function one by one in cumulative way from left
+            to right
+        
+
+        $ reduce(function,iterable,iterable_value)
+'''
+# from functools import reduce
+
+# print('--'*25)
+# listA = [i for i in range(1,6)]
+# outputList =  reduce(lambda x,y: x*y,listA)
+# print(outputList)
+
+# '''
+#     task 
+#     create list from user 
+#     pass it to function square_and_add4(x)
+#     using map create transition list passing over the function
+#     using filter create another list that accepts divisible by five
+# '''
+# N = int(input('Enter number of element to input: '))
+# userList = [ int(input(f'For List 1 element {1+i}: ')) for i in range(N)]
+# outputMap = list(map(lambda x:x**2+4,userList))
+# outputFilter = list(filter(lambda x: x%5 == 0,outputMap))
+# outputReduce = reduce(lambda x,y:x+y,outputFilter)
+# print(userList)
+# print(outputMap)
+# print(outputFilter)
+# print(outputReduce)
 
 '''
-print('--'*25)
+    Decorators:
+        
+'''
