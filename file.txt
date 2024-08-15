@@ -1,7 +1,0 @@
-hello world
-this is form github
-
-
-----Standard Practice ----
-    1. create function
-    2. use try except block on each function

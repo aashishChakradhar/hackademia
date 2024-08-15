@@ -1,0 +1,18 @@
+hello world
+this is form github
+
+
+----Standard Practice ----
+    1. create function
+    2. use try except block on each function
+
+--in pandas --
+    #converts dictionary into table/dataframe
+    data_frame_variable = pd.DataFrame(dictionayVariables)
+
+    print(data_frame_variable.loc[data_frame_variable['marks']<=20])
+
+    # saving dataframe in csv file
+    data_frame_variable.to_csv('Data.csv',index = False)
+    # loading datafile
+    new_dataframe = pd.read_csv('Data.csv')
