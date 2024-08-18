@@ -1,3 +1,7 @@
----- File Handeling ---
+---- File Handeling ----
     1. look up about finally
     2. look up loguru
+
+---- OOP ----
+inheritance
+polymorphism
