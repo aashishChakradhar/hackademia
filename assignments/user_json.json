@@ -1,1 +1,9 @@
-{"aashish": {"password": "chakradhar", "phone": "7777"}, "ram": {"password": "hari", "phone": "9090909"}}
+{
+  "aashish": {
+    "password": "chakradhar",
+    "phone": "7777",
+    "note": " hello worldram hari"
+  },
+  "ram": { "password": "hari", "phone": "9090909", "note": " " },
+  "hari": { "password": "gita", "phone": "11", "note": " " }
+}
