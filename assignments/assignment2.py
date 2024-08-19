@@ -27,85 +27,83 @@ import os
 userDetail = {}
 
 os.system('clear')
+def signup():
+    print('----'*20)
+    username = input('username:\t')
+    password = input('password:\t')
+    phone = input('phone:\t')
+    print('----'*20)
+    
+    try:
+        with open ('assignments/user_json.json','r') as jsonRead:
+            userDetail = json.load(jsonRead)
+        userDetail.update({
+            username : {
+                'password' : password,
+                'phone' : phone,
+            },
+        })
+        print(userDetail)
+    except:
+        print('=='*25)
+        print(f'File not found!!')
+        print('=='*25)
 
-while True:
+    with open ('assignments/user_json.json','w') as jsonWrite:
+        json.dump(userDetail,jsonWrite)
+        # os.system('clear')
+        print('=='*25)
+        print('User Created Successfully')
+        print('=='*25)
+
+def signin():
     found = False
     print('----'*20)
-    choice = int(input('1. Sign Up\n2. Sign In\n0. Exit\nEnter your choice: '))
+    username = input('username:\t')
+    password = input('password:\t')
     print('----'*20)
-    
+    try: 
+        with open('assignments/user_json.json','r') as jsonRead : detail = json.load(jsonRead)
+
+        for db_username,db_auth in detail.items():
+            os.system('clear')
+            if db_username == username:
+                found = True
+                if db_auth['password'] == password:
+                    print('=='*25)
+                    print(f'Welcome to this device!!!\nPhone number: {db_auth['phone']}')
+                    print('=='*25)
+                    break
+                else:
+                    print('=='*25)
+                    print(f'Invalid Password')
+                    print('=='*25)
+                    break
+        if not found:
+            print('=='*25)
+            print(f'User Not Found')
+            print('=='*25)
+    except:
+        print('=='*25)
+        print(f'No Users found!!\nPlease create an account first.')
+        print('=='*25)
+
+while True:
     # to create json file it doesnot exists
     try:
-        with open ('assignments/user_json.json','r') as jsonCheck:
-            pass
+        with open ('assignments/user_json.json','r') as jsonCheck: pass 
     except:
-        with open ('assignments/user_json.json','w') as jsonCreate:
-            pass
-    
-    os.system('clear')
-
-    # for sign up 
-    if choice == 1:
+        with open ('assignments/user_json.json','w') as jsonCreate: json.dump({},jsonCreate)
+    # main menu
+    try:
         print('----'*20)
-        username = input('username:\t')
-        password = input('password:\t')
-        phone = input('phone:\t')
+        choice = int(input('1. Sign Up\n2. Sign In\n0. Exit\nEnter your choice: '))
         print('----'*20)
         
-        try:
-            with open ('assignments/user_json.json','r') as jsonRead:
-                userDetail = json.load(jsonRead)
-            userDetail.update({
-                username : {
-                    'password' : password,
-                    'phone' : phone,
-                },
-            })
-        except:
-            print('=='*25)
-            print(f'File not found!!')
-            print('=='*25)
-
-        with open ('assignments/user_json.json','w') as jsonWrite:
-            json.dump(userDetail,jsonWrite)
-            os.system('clear')
-            print('=='*25)
-            print('User Created Successfully')
-            print('=='*25)
-
-    # for sign in 
-    elif choice == 2:
-        print('----'*20)
-        username = input('username:\t')
-        password = input('password:\t')
-        print('----'*20)
-        try: 
-            with open('assignments/user_json.json','r') as jsonRead:
-                detail = json.load(jsonRead)
-
-            for db_username,db_auth in detail.items():
-                os.system('clear')
-                if db_username == username:
-                    found = True
-                    if db_auth['password'] == password:
-                        print('=='*25)
-                        print(f'Welcome to this device!!!\nPhone number: {db_auth['phone']}')
-                        print('=='*25)
-                        break
-                    else:
-                        print('=='*25)
-                        print(f'Invalid Password')
-                        print('=='*25)
-                        break
-            if not found:
-                print('=='*25)
-                print(f'User Not Found')
-                print('=='*25)
-        except:
-            print('=='*25)
-            print(f'No Users found!!\nPlease create an account first.')
-            print('=='*25)
-
-    # exit case
-    else:
-        break
+        os.system('clear')
+        if choice == 1 : signup()
+        elif choice == 2 : signin()
+        else : break
+            
+    except Exception as e:
+        print(f'{e}')

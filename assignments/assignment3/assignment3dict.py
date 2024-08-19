@@ -53,7 +53,6 @@ class User:
                 print(e)
                 print('---'*25)
 
-    
     def load_data(self):
         for username, info in self.details.items():
             if self.username == username:
@@ -85,9 +84,6 @@ class User:
             print(e)
             print('---'*25)
 
-        
-    
-
     def authentication(self):
         os.system('clear')
         try:
@@ -116,8 +112,6 @@ class User:
             os.system('clear')
             print(e)
             print('---'*25)
-        
-
 
     def welcome_user(self):
         while True:
@@ -145,6 +139,5 @@ class User:
                 os.system('clear')
                 print(e)
                 print('---'*25)
-
-            
+         
 log = User()
