@@ -55,7 +55,6 @@ class User:
                 self.phone = info['phone']
                 self.note = info['note']
                 
-        
     def register_user(self):
         os.system('clear')
         self.username = input('Enter Username:\t')

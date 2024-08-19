@@ -41,10 +41,10 @@ class User:
         
         # to create json file it doesnot exists
         try:
-            with open ('assignments/user_json.json','r') as jsonCheck:
+            with open ('assignments/user_json.json','r'):
                 pass
         except:
-            with open ('assignments/user_json.json','w') as jsonCreate:
+            with open ('assignments/user_json.json','w'):
                 pass
         
         # creating main menu 
