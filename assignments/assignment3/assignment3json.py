@@ -46,10 +46,10 @@ class User:
         
         # to create json file it doesnot exists
         try:
-            with open ('assignment3/user_json.json','r') as json_read:
+            with open ('assignments/assignment3/user_json.json','r') as json_read:
                 self.json_content = json.load(json_read)
         except:
-            with open ('assignment3/user_json.json','w') as json_write:
+            with open ('assignments/assignment3/user_json.json','w') as json_write:
                 json.dump({},json_write)
                 pass
         
@@ -71,11 +71,11 @@ class User:
     
 
     def read_json(self):
-        with open ('assignment3/user_json.json','r') as json_read:
+        with open ('assignments/assignment3/user_json.json','r') as json_read:
             self.json_content = json.load(json_read)
 
     def write_json(self):
-        with open ('assignment3/user_json.json','w') as json_write:
+        with open ('assignments/assignment3/user_json.json','w') as json_write:
             json.dump(self.json_content,json_write)
 
     def set_details(self):

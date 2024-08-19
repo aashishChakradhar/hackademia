@@ -35,7 +35,7 @@ def signup():
     print('----'*20)
     
     try:
-        with open ('assignments/user_json.json','r') as jsonRead:
+        with open ('assignments/assignment2/user_json.json','r') as jsonRead:
             userDetail = json.load(jsonRead)
         userDetail.update({
             username : {
@@ -49,7 +49,7 @@ def signup():
         print(f'File not found!!')
         print('=='*25)
 
-    with open ('assignments/user_json.json','w') as jsonWrite:
+    with open ('assignments/assignment2/user_json.json','w') as jsonWrite:
         json.dump(userDetail,jsonWrite)
         # os.system('clear')
         print('=='*25)
@@ -63,7 +63,7 @@ def signin():
     password = input('password:\t')
     print('----'*20)
     try: 
-        with open('assignments/user_json.json','r') as jsonRead : detail = json.load(jsonRead)
+        with open('assignments/assignment2/user_json.json','r') as jsonRead : detail = json.load(jsonRead)
 
         for db_username,db_auth in detail.items():
             os.system('clear')
@@ -91,9 +91,9 @@ def signin():
 while True:
     # to create json file it doesnot exists
     try:
-        with open ('assignments/user_json.json','r') as jsonCheck: pass 
+        with open ('assignments/assignment2/user_json.json','r') as jsonCheck: pass 
     except:
-        with open ('assignments/user_json.json','w') as jsonCreate: json.dump({},jsonCreate)
+        with open ('assignments/assignment2/user_json.json','w') as jsonCreate: json.dump({},jsonCreate)
     # main menu
     try:
         print('----'*20)
