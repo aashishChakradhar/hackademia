@@ -40,13 +40,19 @@ class User:
         self.details = {}
         os.system('clear')
         while True:
-            choice = int(input('1. Sign up\n2. Sign in\n3. Exit\nEnter your choice:\t'))
-            if choice == 1:
-                self.register_user()
-            elif choice == 2:
-                self.authentication()
-            else:
-                break
+            try:
+                choice = int(input('1. Sign up\n2. Sign in\n3. Exit\nEnter your choice:\t'))
+                if choice == 1:
+                    self.register_user()
+                elif choice == 2:
+                    self.authentication()
+                else:
+                    break
+            except Exception as e:
+                os.system('clear')
+                print(e)
+                print('---'*25)
+
     
     def load_data(self):
         for username, info in self.details.items():
@@ -55,67 +61,90 @@ class User:
                 self.phone = info['phone']
                 self.note = info['note']
                 
+
     def register_user(self):
         os.system('clear')
-        self.username = input('Enter Username:\t')
-        self.password = input('Enter Password:\t')
-        self.phone = int(input('Enter phone number:\t'))
-        self.note = ''
-        self.details.update({
-            self.username:{
-                'password' : self.password,
-                'phone' : self.phone,
-                'note' : self.note,
-            }
-        })
-        os.system('clear')
-        print(f'User Created SUccessfully')
-        print('---'*25)
+        try:
+            self.username = input('Enter Username:\t')
+            self.password = input('Enter Password:\t')
+            self.phone = int(input('Enter phone number:\t'))
+            self.note = ''
+            self.details.update({
+                self.username:{
+                    'password' : self.password,
+                    'phone' : self.phone,
+                    'note' : self.note,
+                }
+            })
+            os.system('clear')
+            print(f'User Created SUccessfully')
+            print('---'*25)
+
+        except Exception as e:
+            os.system('clear')
+            print(e)
+            print('---'*25)
+
+        
     
+
     def authentication(self):
         os.system('clear')
-        user_found = False
-        in_username = input('Enter Username:\t')
-        in_password = input('Enter Password:\t')
-        for username,info in self.details.items():
-            if username == in_username :
-                user_found = True
-                if info['password'] == in_password:
-                    self.username = username
-                    self.load_data()
-                    os.system('clear')
-                    print('Login Successful')
-                    print('---'*25)
-                    self.welcome_user()
-                else:
-                    os.system('clear')
-                    print('Invalid Password')
-                    print('---'*25)
-        if not user_found:
+        try:
+            user_found = False
+            in_username = input('Enter Username:\t')
+            in_password = input('Enter Password:\t')
+            for username,info in self.details.items():
+                if username == in_username :
+                    user_found = True
+                    if info['password'] == in_password:
+                        self.username = username
+                        self.load_data()
+                        os.system('clear')
+                        print('Login Successful')
+                        print('---'*25)
+                        self.welcome_user()
+                    else:
+                        os.system('clear')
+                        print('Invalid Password')
+                        print('---'*25)
+            if not user_found:
+                os.system('clear')
+                print('User not found')
+                print('---'*25)
+        except Exception as e:
             os.system('clear')
-            print('User not found')
+            print(e)
             print('---'*25)
+        
+
 
     def welcome_user(self):
         while True:
-            print(f'Welcome {self.username}!!\nphone Number: {self.phone}\n')
-            choice = int(input('1. Enter note\n2. Display note\n3. Exit\nEnte your choice:\t'))
-            os.system('clear')
-            if choice == 1:
-                for username,info in self.details.items():
-                    if self.username == username:
-                        self.note += ' ' + input('Enter note:\n')
-                        info.update({
-                            'note':self.note
-                        })
+            try:
+                print(f'Welcome {self.username}!!\nphone Number: {self.phone}\n')
+                choice = int(input('1. Enter note\n2. Display note\n3. Exit\nEnte your choice:\t'))
                 os.system('clear')
-                print('Note updated Successfully!!')
+                if choice == 1:
+                    for username,info in self.details.items():
+                        if self.username == username:
+                            self.note += ' ' + input('Enter note:\n')
+                            info.update({
+                                'note':self.note
+                            })
+                    os.system('clear')
+                    print('Note updated Successfully!!')
+                    print('---'*25)
+
+                elif choice == 2:
+                    print(f'Your Note:\n{self.note}')
+                    print('---'*25)
+                else:
+                    break
+            except Exception as e:
+                os.system('clear')
+                print(e)
                 print('---'*25)
 
-            elif choice == 2:
-                print(f'Your Note:\n{self.note}')
-                print('---'*25)
-            else:
-                break
-
+            
 log = User()
