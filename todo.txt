@@ -5,3 +5,9 @@
 ---- OOP ----
 inheritance
 polymorphism
+
+
+support vector machine and decision tree classifer therotical understanding
+and implement it in iris flower dataset
+
+id3 algorithm -youtube ma
